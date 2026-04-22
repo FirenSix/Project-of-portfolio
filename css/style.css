@@ -45,6 +45,7 @@ nav a {
 
 .linha {
   display: flex;
+  width: max-content;
   gap: 15px;
   margin: 15px 0;
 }
@@ -54,27 +55,27 @@ nav a {
   width: 160px;
   object-fit: cover;
   border-radius: 10px;
-  transition: 0.4s;
 }
 
-.linha img:hover {
-  transform: scale(1.1);
-}
-
-/* ANIMAÇÃO */
-@keyframes esquerda {
+/* ANIMAÇÕES LOOP PERFEITO */
+@keyframes scroll-esquerda {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@keyframes direita {
+@keyframes scroll-direita {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
-
-.linha1 { animation: esquerda 20s linear infinite; }
-.linha2 { animation: direita 25s linear infinite; }
-.linha3 { animation: esquerda 30s linear infinite; }
+.linha1 {
+  animation: scroll-esquerda 20s linear infinite;
+}
+.linha2 {
+  animation: scroll-direita 25s linear infinite;
+}
+.linha3 {
+  animation: scroll-esquerda 30s linear infinite;
+}
 
 /* BOTÃO */
 #abrirGaleria {
