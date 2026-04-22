@@ -1,36 +1,35 @@
-// BOTÃO ABRIR GALERIA
+// ABRIR GALERIA
 document.getElementById("abrirGaleria").onclick = () => {
   document.getElementById("galeriaModal").style.display = "block";
 };
 
-// LISTA DE IMAGENS (img1.png até img5.png)
+// IMAGENS (img1.png até img5.png)
 const imagens = [];
 
 for (let i = 1; i <= 5; i++) {
   imagens.push(`assets/images/teste/img${i}.png`);
 }
 
-// PEGAR LINHAS DA GALERIA
+// PEGAR LINHAS
 const linhas = document.querySelectorAll(".linha");
 
-// CRIAR EFEITO DE LOOP SUAVE
+// LOOP INFINITO REAL
 linhas.forEach((linha, index) => {
 
-  // alterna direção (pra ficar mais bonito)
-  const lista = index % 2 === 0 ? imagens : [...imagens].reverse();
+  const listaBase = index % 2 === 0 ? imagens : [...imagens].reverse();
 
-  // duplicar imagens (pra não ficar vazio no loop)
-  for (let i = 0; i < 2; i++) {
-    lista.forEach(src => {
-      const img = document.createElement("img");
-      img.src = src;
-      linha.appendChild(img);
-    });
-  }
+  // DUPLICA PRA LOOP PERFEITO
+  const listaFinal = [...listaBase, ...listaBase];
+
+  listaFinal.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    linha.appendChild(img);
+  });
 
 });
 
-// PROJETOS FAKE (pra modal)
+// PROJETOS FAKE
 const projetos = [
   {
     nome: "Projeto 1",
