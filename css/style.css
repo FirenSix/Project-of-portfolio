@@ -20,6 +20,7 @@ header {
   justify-content: space-between;
   background: rgba(13,13,13,0.6);
   backdrop-filter: blur(10px);
+  z-index: 1000;
 }
 
 nav a {
