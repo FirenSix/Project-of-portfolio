@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Portfólio Fotógrafo</title>
+  <meta charset="UTF-8">
+  <title>Durantte Fotografia</title>
 
-<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 
 <body>
 
 <header>
-  <h2>Durantte Fotografia</h2>
+  <h2>Durantte</h2>
   <nav>
     <a href="#sobre">Sobre</a>
     <a href="#galeria">Galeria</a>
@@ -22,28 +21,33 @@
   </nav>
 </header>
 
+<!-- GALERIA -->
 <section class="galeria-preview" id="galeria">
   <div class="linha linha1"></div>
   <div class="linha linha2"></div>
   <div class="linha linha3"></div>
 </section>
 
+<!-- FRASES -->
 <section class="frases">
   <p>Memórias que o tempo não apaga.</p>
   <p>Histórias que vivem para sempre.</p>
 </section>
 
+<!-- SOBRE -->
 <section id="sobre" class="sobre">
-  <img src="imagemPerfil.png">
+  <img src="assets/images/perfil/imagemPerfil.png">
+
   <div>
     <h2>Durantte Fotografia</h2>
-    <p>
-Acredito que a fotografia de verdade é aquela que busca o que é real, as coisas que acontecem uma única vez e que não podem ser ensaiadas.
 
-Meu olhar é guiado pela sensibilidade...
+    <p>
+Acredito que a fotografia de verdade é aquela que busca o que é real, as coisas que acontecem uma única vez e que não podem ser ensaiadas.<br><br>
+
+Meu olhar é guiado pela sensibilidade, mas também pela intenção de estar presente.<br><br>
 
 "Não fazemos uma foto apenas com uma câmera..."
-— Ansel Adams
+<br>— Ansel Adams
     </p>
   </div>
 </section>
@@ -56,6 +60,7 @@ Meu olhar é guiado pela sensibilidade...
 <div class="modal" id="contatoModal">
   <div class="modal-content">
     <h3>Vamos criar um projeto juntos?</h3>
+
     <a href="https://wa.me/554499542293" target="_blank">WhatsApp</a>
     <a href="https://instagram.com/duranttefotografia" target="_blank">Instagram</a>
     <a href="mailto:matheusferreirxa@gmail.com">Email</a>
@@ -74,14 +79,16 @@ Meu olhar é guiado pela sensibilidade...
 <!-- ADMIN -->
 <div class="modal" id="adminPanel">
   <div class="modal-content">
+
     <button onclick="mostrarForm()">Publicar Projeto</button>
 
     <div id="formProjeto" style="display:none;">
-      <input id="projNome" placeholder="Nome">
+      <input id="projNome" placeholder="Nome do projeto">
       <textarea id="projDesc"></textarea>
       <input type="file" id="fotos" multiple>
       <button onclick="publicarProjeto()">Enviar</button>
     </div>
+
   </div>
 </div>
 
