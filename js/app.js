@@ -8,7 +8,18 @@ document.getElementById("adminBtn").onclick = () => {
   document.getElementById("loginModal").style.display = "block";
 };
 
-// GALERIA (loop)
+// FECHAR
+function fecharModal(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+window.onclick = function(e) {
+  document.querySelectorAll(".modal").forEach(modal => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+};
+
+// GALERIA LOOP
 const imagens = [];
 for (let i = 1; i <= 5; i++) {
   imagens.push(`assets/images/teste/img${i}.png`);
@@ -27,6 +38,11 @@ linhas.forEach((linha, index) => {
   });
 });
 
+// BOTÃO GALERIA
+document.getElementById("abrirGaleria").onclick = () => {
+  alert("Aqui vai abrir os projetos 😏");
+};
+
 // LOGIN
 async function login() {
   const email = document.getElementById("email").value;
@@ -37,18 +53,18 @@ async function login() {
     password: senha
   });
 
-  if (error) return alert("Erro no login");
+  if (error) return alert(error.message);
 
   document.getElementById("loginModal").style.display = "none";
   document.getElementById("adminPanel").style.display = "block";
 }
 
-// MOSTRAR FORM
+// FORM
 function mostrarForm() {
   document.getElementById("formProjeto").style.display = "block";
 }
 
-// PUBLICAR PROJETO
+// PUBLICAR
 async function publicarProjeto() {
   const nome = document.getElementById("projNome").value;
   const desc = document.getElementById("projDesc").value;
