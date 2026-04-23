@@ -33,10 +33,9 @@ nav a {
 /* GALERIA */
 .galeria-preview {
   margin-top:80px;
-  height:600px;
+  padding:40px 0;
   overflow:hidden;
   position:relative;
-
 }
 
 .linha {
