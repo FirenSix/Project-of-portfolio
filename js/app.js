@@ -13,14 +13,14 @@ function fecharModal(id) {
   document.getElementById(id).style.display = "none";
 }
 
-window.onclick = function(e) {
+window.onclick = function (e) {
   document.querySelectorAll(".modal").forEach(modal => {
     if (e.target === modal) modal.style.display = "none";
   });
 };
 
 // ==========================
-// MURAL (GALERIA PRINCIPAL)
+// MURAL
 // ==========================
 async function carregarMural() {
   const linhas = document.querySelectorAll(".linha");
@@ -33,14 +33,20 @@ async function carregarMural() {
 
     if (data && data.length > 0) {
       data.forEach(p => {
-        if (p.imagens) imagens.push(...p.imagens);
+        if (Array.isArray(p.imagens)) {
+          p.imagens.forEach(img => {
+            if (img && img.startsWith("http")) {
+              imagens.push(img);
+            }
+          });
+        }
       });
     }
   } catch (e) {
-    console.log("Erro ao buscar do supabase:", e);
+    console.log("Erro supabase:", e);
   }
 
-  // fallback (imagens locais)
+  // fallback local
   if (imagens.length === 0) {
     for (let i = 1; i <= 18; i++) {
       imagens.push(`assets/images/teste/img${i}.png`);
@@ -61,9 +67,8 @@ async function carregarMural() {
 
 carregarMural();
 
-
 // ==========================
-// BOTÃO VER GALERIA
+// GALERIA
 // ==========================
 document.getElementById("abrirGaleria").onclick = carregarGaleria;
 
@@ -73,32 +78,25 @@ async function carregarGaleria() {
   const container = document.getElementById("listaProjetos");
   container.innerHTML = "";
 
-  try {
-    const { data } = await supabaseClient.from("projetos").select("*");
+  const { data } = await supabaseClient.from("projetos").select("*");
 
-    if (!data || data.length === 0) {
-      container.innerHTML = "<p>Nenhum projeto ainda</p>";
-      return;
-    }
-
-    data.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "card-projeto";
-
-      div.innerHTML = `
-        <img src="${p.capa_url}">
-        <span>${p.nome}</span>
-      `;
-
-      container.appendChild(div);
-    });
-
-  } catch (err) {
-    console.error(err);
-    container.innerHTML = "<p>Erro ao carregar projetos</p>";
+  if (!data || data.length === 0) {
+    container.innerHTML = "<p>Nenhum projeto ainda</p>";
+    return;
   }
-}
 
+  data.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "card-projeto";
+
+    div.innerHTML = `
+      <img src="${p.capa_url}">
+      <span>${p.nome}</span>
+    `;
+
+    container.appendChild(div);
+  });
+}
 
 // ==========================
 // LOGIN
@@ -123,7 +121,6 @@ async function login() {
   carregarAdmin();
 }
 
-
 // ==========================
 // FORM
 // ==========================
@@ -131,9 +128,8 @@ function mostrarForm() {
   document.getElementById("formProjeto").style.display = "block";
 }
 
-
 // ==========================
-// PUBLICAR PROJETO
+// PUBLICAR PROJETO (CORRIGIDO)
 // ==========================
 async function publicarProjeto() {
   try {
@@ -160,10 +156,18 @@ async function publicarProjeto() {
 
       const { data } = supabaseClient
         .storage
-        .from("imagens")
+        .from("images")
         .getPublicUrl(nomeArq);
 
+      if (!data?.publicUrl) {
+        throw new Error("Erro ao gerar URL pública");
+      }
+
       urls.push(data.publicUrl);
+    }
+
+    if (!urls.length) {
+      throw new Error("Nenhuma imagem enviada");
     }
 
     const { error } = await supabaseClient
@@ -179,15 +183,14 @@ async function publicarProjeto() {
 
     alert("Projeto publicado!");
 
-    carregarAdmin();
     carregarMural();
+    carregarAdmin();
 
   } catch (err) {
     console.error(err);
     alert("Erro: " + err.message);
   }
 }
-
 
 // ==========================
 // ADMIN
@@ -196,29 +199,23 @@ async function carregarAdmin() {
   const lista = document.getElementById("listaAdmin");
   lista.innerHTML = "";
 
-  try {
-    const { data } = await supabaseClient.from("projetos").select("*");
+  const { data } = await supabaseClient.from("projetos").select("*");
 
-    if (!data) return;
+  if (!data) return;
 
-    data.forEach(p => {
-      const div = document.createElement("div");
+  data.forEach(p => {
+    const div = document.createElement("div");
 
-      div.innerHTML = `
-        <b>${p.nome}</b><br>
-        <button onclick="editarProjeto('${p.id}')">Editar</button>
-        <button onclick="deletarProjeto('${p.id}')">Excluir</button>
-        <hr>
-      `;
+    div.innerHTML = `
+      <b>${p.nome}</b><br>
+      <button onclick="editarProjeto('${p.id}')">Editar</button>
+      <button onclick="deletarProjeto('${p.id}')">Excluir</button>
+      <hr>
+    `;
 
-      lista.appendChild(div);
-    });
-
-  } catch (err) {
-    console.error(err);
-  }
+    lista.appendChild(div);
+  });
 }
-
 
 // ==========================
 // EDITAR
@@ -235,9 +232,8 @@ async function editarProjeto(id) {
   carregarAdmin();
 }
 
-
 // ==========================
-// DELETAR
+// DELETE
 // ==========================
 async function deletarProjeto(id) {
   if (!confirm("Excluir projeto?")) return;
