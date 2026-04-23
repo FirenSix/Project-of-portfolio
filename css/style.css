@@ -8,6 +8,7 @@ body {
 
 header {
   position:fixed;
+  top:0;
   width:100%;
   padding:20px 60px;
   display:flex;
@@ -32,10 +33,10 @@ nav a {
 
 /* GALERIA */
 .galeria-preview {
-  height:300px;
+  margin-top:80px;
+  height:380px;
   overflow:hidden;
   position:relative;
-  padding-top:80px;
 }
 
 .linha {
@@ -52,20 +53,19 @@ nav a {
 }
 
 @keyframes esquerda {
-  0% { transform:translateX(0); }
-  100% { transform:translateX(-50%); }
+  from { transform:translateX(0); }
+  to { transform:translateX(-50%); }
 }
 
 @keyframes direita {
-  0% { transform:translateX(-50%); }
-  100% { transform:translateX(0); }
+  from { transform:translateX(-50%); }
+  to { transform:translateX(0); }
 }
 
 .linha1 { animation:esquerda 20s linear infinite; }
 .linha2 { animation:direita 25s linear infinite; }
 .linha3 { animation:esquerda 30s linear infinite; }
 
-/* BOTÃO GALERIA */
 .btn-galeria {
   position:absolute;
   bottom:20px;
@@ -80,7 +80,15 @@ nav a {
 }
 
 /* FRASES */
-.frases { text-align:center; padding:80px; }
+.frases {
+  text-align:center;
+  padding:80px;
+}
+
+.frases p {
+  font-size:32px;
+  margin:10px 0;
+}
 
 /* SOBRE */
 .sobre {
@@ -125,8 +133,8 @@ nav a {
   display:flex;
   align-items:center;
   gap:10px;
-  text-decoration:none;
   color:white;
+  text-decoration:none;
 }
 
 .modal-content img {
