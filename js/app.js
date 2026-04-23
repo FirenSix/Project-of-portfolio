@@ -90,3 +90,17 @@ async function publicarProjeto() {
 
   alert("Projeto publicado!");
 }
+
+
+// TESTE DE LOGIN
+async function testeLogin() {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: "matheusferreirxa@gmail.com",
+    password: "@M4theusDur4ante1515"
+  });
+
+  console.log("DATA:", data);
+  console.log("ERROR:", error);
+}
+
+testeLogin();
