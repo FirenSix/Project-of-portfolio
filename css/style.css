@@ -71,7 +71,7 @@ nav a:hover {
   object-fit: cover;
 }
 
-/* 🔥 LOOP REAL (sem quebra no meio) */
+/* animação contínua */
 @keyframes esquerda {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -210,35 +210,20 @@ nav a:hover {
   background: linear-gradient(transparent, rgba(0,0,0,0.85));
 }
 
-/* ================= RESPONSIVO MOBILE FORTE ================= */
+/* ================= MOBILE FORTE ================= */
 @media (max-width: 480px) {
 
-  /* =========================
-     HEADER (ALINHADO DE VERDADE)
-  ========================= */
   header {
     padding: 14px 12px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
   }
 
   header h2 {
     font-size: 22px;
-    white-space: nowrap;
-  }
-
-  nav {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-end;
   }
 
   nav a {
     font-size: 13px;
-    margin-left: 0;
+    margin-left: 10px;
   }
 
   .btn-contato {
@@ -246,50 +231,33 @@ nav a:hover {
     font-size: 13px;
   }
 
-  /* =========================
-     GALERIA
-  ========================= */
   .galeria-preview {
     padding: 18px 0;
-    margin-top: 100px;
   }
 
   .linha {
     gap: 10px;
-    margin: 10px 0;
   }
 
   .linha img {
     height: 190px;
   }
 
-  .btn-galeria {
-    padding: 12px 20px;
-    font-size: 14px;
-  }
-
-  /* =========================
-     FRASES (MENOR E MAIS LIMPO)
-  ========================= */
   .frases {
     padding: 30px 12px;
   }
 
   .frases p {
     font-size: 18px;
-    line-height: 1.4;
   }
 
-  /* =========================
-     SOBRE (MAIS BONITO NO MOBILE)
-  ========================= */
   .sobre {
     flex-direction: column;
     padding: 30px 15px;
-    gap: 16px;
     text-align: center;
   }
 
+  /* 🔥 troca imagem só no celular */
   .sobre img {
     content: url("fotoperfilhorizontal.png");
     width: 100%;
@@ -298,28 +266,8 @@ nav a:hover {
     border-radius: 14px;
   }
 
-  .sobre h2 {
-    font-size: 22px;
-  }
-
-  .sobre p {
-    font-size: 14px;
-    line-height: 1.5;
-    text-align: justify;
-  }
-
-  /* =========================
-     MODAIS
-  ========================= */
   .modal-content {
     width: 92%;
     padding: 16px;
-  }
-
-  /* =========================
-     GALERIA FULL
-  ========================= */
-  .card-projeto img {
-    height: 220px;
   }
 }
