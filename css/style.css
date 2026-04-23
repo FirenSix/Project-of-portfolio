@@ -43,10 +43,9 @@ nav a {
   display:flex;
   width:max-content;
   gap:20px;
-  margin:25px 0; /* 👈 espaçamento entre linhas */
+  margin:25px 0;
 }
 
-/* 🔥 IMAGEM SEM CORTE */
 .linha img {
   height:120px;
   width:auto;
