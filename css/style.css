@@ -21,7 +21,6 @@ header {
 nav a {
   margin-left:30px;
   color:#ccc;
-  text-decoration:none;
 }
 
 .btn-contato {
@@ -34,7 +33,7 @@ nav a {
 /* GALERIA */
 .galeria-preview {
   margin-top:80px;
-  height:420px;
+  height:450px;
   overflow:hidden;
   position:relative;
 }
@@ -42,17 +41,17 @@ nav a {
 .linha {
   display:flex;
   width:max-content;
-  gap:20px;
-  margin:25px 0;
+  gap:25px;
+  margin:30px 0;
 }
 
 .linha img {
-  height:120px;
+  height:160px;
   width:auto;
   object-fit:contain;
-  border-radius:10px;
+  border-radius:12px;
   background:#111;
-  padding:5px;
+  padding:6px;
 }
 
 @keyframes esquerda {
@@ -65,9 +64,9 @@ nav a {
   to { transform:translateX(0); }
 }
 
-.linha1 { animation:esquerda 20s linear infinite; }
-.linha2 { animation:direita 25s linear infinite; }
-.linha3 { animation:esquerda 30s linear infinite; }
+.linha1 { animation:esquerda 40s linear infinite; }
+.linha2 { animation:direita 50s linear infinite; }
+.linha3 { animation:esquerda 60s linear infinite; }
 
 .btn-galeria {
   position:absolute;
@@ -83,27 +82,12 @@ nav a {
 }
 
 /* FRASES */
-.frases {
-  text-align:center;
-  padding:80px;
-}
-
-.frases p {
-  font-size:34px;
-  margin:10px 0;
-}
+.frases { text-align:center; padding:80px; }
+.frases p { font-size:34px; }
 
 /* SOBRE */
-.sobre {
-  display:flex;
-  gap:60px;
-  padding:80px;
-}
-
-.sobre img {
-  width:250px;
-  border-radius:20px;
-}
+.sobre { display:flex; gap:60px; padding:80px; }
+.sobre img { width:250px; border-radius:20px; }
 
 /* MODAL */
 .modal {
@@ -132,14 +116,32 @@ nav a {
   cursor:pointer;
 }
 
-.modal-content a {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:white;
-  text-decoration:none;
+/* GALERIA FULL */
+.galeria-full {
+  width:90%;
+  max-width:1000px;
 }
 
-.modal-content img {
-  width:20px;
+#listaProjetos {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card-projeto {
+  position:relative;
+}
+
+.card-projeto img {
+  width:100%;
+  border-radius:10px;
+}
+
+.card-projeto span {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  padding:10px;
+  color:white;
+  background:linear-gradient(transparent, rgba(0,0,0,0.8));
 }
