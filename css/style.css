@@ -4,17 +4,14 @@
   box-sizing: border-box;
 }
 
-}
-
 body {
-  font-family: 'Playfair Display';
+  font-family: 'Playfair Display', serif;
   background: #0d0d0d;
   color: #f5f5f5;
+  overflow-x: hidden;
 }
 
-/* ==========================
-   HEADER
-========================== */
+/* ================= HEADER ================= */
 header {
   position: fixed;
   top: 0;
@@ -26,6 +23,10 @@ header {
   background: rgba(0,0,0,0.65);
   backdrop-filter: blur(12px);
   z-index: 1000;
+}
+
+header h2 {
+  font-size: 28px;
 }
 
 nav a {
@@ -41,92 +42,79 @@ nav a:hover {
 
 .btn-contato {
   background: linear-gradient(135deg,#ff7a00,#ffae42);
-  padding: 8px 18px;
+  padding: 10px 18px;
   border-radius: 20px;
   cursor: pointer;
   color: #000;
   font-weight: bold;
 }
 
-/* ==========================
-   GALERIA (CORRIGIDA)
-========================== */
-
+/* ================= GALERIA ================= */
 .galeria-preview {
   margin-top: 90px;
-  padding: 25px 0;
+  padding: 20px 0;
   overflow: hidden;
   position: relative;
 }
 
 .linha {
   display: flex;
-  gap: 18px;
-  margin: 18px 0;
+  gap: 14px;
+  margin: 14px 0;
   width: max-content;
   will-change: transform;
 }
 
 .linha img {
   height: 160px;
-  width: auto;
-  object-fit: cover;
   border-radius: 12px;
-  background: #111;
-  padding: 4px;
+  object-fit: cover;
 }
 
-/* animações diferentes de verdade */
-@keyframes moveLeft {
+/* animações em direções opostas */
+@keyframes esquerda {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
-@keyframes moveRight {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+@keyframes direita {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
 }
 
-.linha1 { animation: moveLeft 60s linear infinite; }
-.linha2 { animation: moveRight 75s linear infinite; }
-.linha3 { animation: moveLeft 90s linear infinite; }
+.linha1 { animation: esquerda 65s linear infinite; }
+.linha2 { animation: direita 75s linear infinite; }
+.linha3 { animation: esquerda 85s linear infinite; }
 
 .btn-galeria {
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 12px 30px;
+  padding: 12px 28px;
   background: linear-gradient(135deg,#ff7a00,#ffae42);
   border: none;
   border-radius: 30px;
   color: white;
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
 }
 
-/* ==========================
-   FRASES
-========================== */
-
+/* ================= FRASES ================= */
 .frases {
   text-align: center;
-  padding: 40px 15px;
+  padding: 60px 20px;
 }
 
 .frases p {
-  font-size: 24px;
+  font-size: 26px;
   margin: 8px 0;
-  opacity: 0.9;
 }
 
-/* ==========================
-   SOBRE
-========================== */
-
+/* ================= SOBRE ================= */
 .sobre {
   display: flex;
-  gap: 60px;
+  gap: 50px;
   padding: 80px;
   align-items: center;
 }
@@ -136,10 +124,7 @@ nav a:hover {
   border-radius: 20px;
 }
 
-/* ==========================
-   MODAIS
-========================== */
-
+/* ================= MODAL ================= */
 .modal {
   display: none;
   position: fixed;
@@ -166,29 +151,19 @@ nav a:hover {
   right: 12px;
   top: 10px;
   cursor: pointer;
-  font-size: 18px;
-  color: #fff;
 }
 
-/* ==========================
-   CONTATO
-========================== */
-
-.modal-content h3 {
-  color: #ffae42;
-  font-size: 18px;
-}
-
+/* links contato */
 .modal-content a {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 12px;
+  padding: 10px;
   border-radius: 10px;
-  background: rgba(255,255,255,0.03);
-  transition: 0.2s;
   text-decoration: none;
   color: #fff;
+  background: rgba(255,255,255,0.03);
+  transition: 0.2s;
 }
 
 .modal-content a:hover {
@@ -199,13 +174,9 @@ nav a:hover {
 .modal-content a img {
   width: 22px;
   height: 22px;
-  object-fit: contain;
 }
 
-/* ==========================
-   GALERIA FULL
-========================== */
-
+/* ================= GALERIA FULL ================= */
 .galeria-full {
   width: 90%;
   max-width: 1000px;
@@ -213,7 +184,7 @@ nav a:hover {
 
 #listaProjetos {
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
@@ -234,51 +205,66 @@ nav a:hover {
   bottom: 0;
   width: 100%;
   padding: 12px;
-  color: white;
   font-weight: bold;
+  color: white;
   background: linear-gradient(transparent, rgba(0,0,0,0.85));
 }
 
-/* ==========================
-   RESPONSIVO (MOBILE)
-========================== */
-
-@media only screen and (max-width: 900px) {
+/* ================= RESPONSIVO ================= */
+@media (max-width: 900px) {
 
   header {
-    padding: 20px 14px !important;
+    padding: 14px 16px;
   }
 
   header h2 {
-    font-size: 22px !important;
+    font-size: 22px;
   }
 
   nav a {
-    font-size: 15px !important;
-    margin-left: 12px !important;
+    font-size: 13px;
+    margin-left: 10px;
   }
 
   .btn-contato {
-    padding: 12px 16px !important;
-    font-size: 14px !important;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .galeria-preview {
+    padding: 15px 0;
   }
 
   .linha img {
-    height: 150px !important;
+    height: 140px;
+  }
+
+  .linha {
+    gap: 10px;
   }
 
   .frases p {
-    font-size: 22px !important;
+    font-size: 20px;
   }
 
   .sobre {
-    flex-direction: column !important;
-    padding: 30px 15px !important;
+    flex-direction: column;
+    padding: 30px 15px;
+    text-align: center;
   }
 
   .sobre img {
-    width: 100% !important;
-    height: 200px !important;
-    object-fit: cover !important;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+  .btn-galeria {
+    font-size: 14px;
+    padding: 10px 18px;
   }
 }
