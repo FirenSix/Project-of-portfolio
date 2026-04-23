@@ -21,7 +21,7 @@ window.onclick = function(e) {
 
 // GALERIA LOOP
 const imagens = [];
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i <= 18; i++) {
   imagens.push(`assets/images/teste/img${i}.png`);
 }
 
