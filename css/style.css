@@ -243,51 +243,96 @@ nav a:hover {
 
 @media (max-width: 768px) {
 
+  /* ================= HEADER ================= */
   header {
-    padding: 12px 16px;
+    padding: 18px 16px;
+  }
+
+  header h2 {
+    font-size: 20px;
   }
 
   nav a {
     margin-left: 10px;
+    font-size: 14px;
+  }
+
+  .btn-contato {
+    padding: 10px 14px;
     font-size: 13px;
   }
 
+  /* ================= GALERIA ================= */
   .galeria-preview {
-    padding: 12px 0;
+    padding: 15px 0;
   }
 
   .linha {
-    gap: 10px;
-    margin: 10px 0;
+    gap: 12px;
+    margin: 12px 0;
   }
 
   .linha img {
-    height: 110px;
-    padding: 3px;
-  }
-
-  .frases p {
-    font-size: 20px;
-  }
-
-  .sobre {
-    flex-direction: column;
-    padding: 30px 15px;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .sobre img {
-    width: 160px;
-  }
-
-  .modal-content {
-    width: 92%;
-    max-width: 340px;
+    height: 140px;
+    border-radius: 10px;
   }
 
   .btn-galeria {
-    font-size: 13px;
-    padding: 10px 16px;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  /* ================= FRASES ================= */
+  .frases {
+    padding: 50px 15px;
+  }
+
+  .frases p {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  /* ================= SOBRE (AQUI MUDOU DE VERDADE) ================= */
+  .sobre {
+    flex-direction: column;
+    padding: 40px 15px;
+    gap: 25px;
+    text-align: center;
+  }
+
+  /* FOTO EM “PAISAGEM” */
+  .sobre img {
+    width: 100%;
+    max-width: 320px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+  .sobre h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .sobre p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ================= MODAIS ================= */
+  .modal-content {
+    width: 92%;
+    max-width: 340px;
+    padding: 20px;
+  }
+
+  .modal-content a {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .modal-content a img {
+    width: 24px;
+    height: 24px;
   }
 }
