@@ -1,17 +1,21 @@
 // ==========================
-// MODAIS
+// MODAIS (CORRIGIDO)
 // ==========================
-document.querySelector(".btn-contato").onclick = () => {
-  document.getElementById("contatoModal").style.display = "block";
-};
-
-document.getElementById("adminBtn").onclick = () => {
-  document.getElementById("loginModal").style.display = "block";
-};
+function abrirModal(id) {
+  document.getElementById(id).style.display = "flex";
+}
 
 function fecharModal(id) {
   document.getElementById(id).style.display = "none";
 }
+
+document.querySelector(".btn-contato").onclick = () => {
+  abrirModal("contatoModal");
+};
+
+document.getElementById("adminBtn").onclick = () => {
+  abrirModal("loginModal");
+};
 
 window.onclick = function (e) {
   document.querySelectorAll(".modal").forEach(modal => {
@@ -35,7 +39,7 @@ async function carregarMural() {
       data.forEach(p => {
         if (Array.isArray(p.imagens)) {
           p.imagens.forEach(img => {
-            if (img && img.startsWith("http")) {
+            if (img?.startsWith("http")) {
               imagens.push(img);
             }
           });
@@ -46,7 +50,7 @@ async function carregarMural() {
     console.log("Erro supabase:", e);
   }
 
-  // fallback local
+  // fallback
   if (imagens.length === 0) {
     for (let i = 1; i <= 18; i++) {
       imagens.push(`assets/images/teste/img${i}.png`);
@@ -73,7 +77,7 @@ carregarMural();
 document.getElementById("abrirGaleria").onclick = carregarGaleria;
 
 async function carregarGaleria() {
-  document.getElementById("galeriaModal").style.display = "block";
+  abrirModal("galeriaModal");
 
   const container = document.getElementById("listaProjetos");
   container.innerHTML = "";
@@ -116,7 +120,7 @@ async function login() {
   }
 
   fecharModal("loginModal");
-  document.getElementById("adminPanel").style.display = "block";
+  abrirModal("adminPanel");
 
   carregarAdmin();
 }
@@ -129,7 +133,7 @@ function mostrarForm() {
 }
 
 // ==========================
-// PUBLICAR PROJETO (CORRIGIDO)
+// PUBLICAR PROJETO
 // ==========================
 async function publicarProjeto() {
   try {
@@ -159,15 +163,7 @@ async function publicarProjeto() {
         .from("images")
         .getPublicUrl(nomeArq);
 
-      if (!data?.publicUrl) {
-        throw new Error("Erro ao gerar URL pública");
-      }
-
       urls.push(data.publicUrl);
-    }
-
-    if (!urls.length) {
-      throw new Error("Nenhuma imagem enviada");
     }
 
     const { error } = await supabaseClient
