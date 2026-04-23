@@ -5,6 +5,10 @@
 }
 
 body {
+  background: blue !important;
+}
+
+body {
   font-family: 'Playfair Display';
   background: #0d0d0d;
   color: #f5f5f5;
