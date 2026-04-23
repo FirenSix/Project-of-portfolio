@@ -153,7 +153,7 @@ async function publicarProjeto() {
 
       const { error: uploadError } = await supabaseClient
         .storage
-        .from("imagens")
+        .from("images")
         .upload(nomeArq, file);
 
       if (uploadError) throw uploadError;
