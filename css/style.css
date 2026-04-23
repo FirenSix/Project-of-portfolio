@@ -61,7 +61,23 @@ nav a:hover {
   width: max-content;
   gap: 25px;
   margin: 35px 0;
+  will-change: transform;
 }
+
+/* 🔥 AJUSTE PRINCIPAL: agora o loop funciona no mobile */
+@keyframes esquerda {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes direita {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.linha1 { animation: esquerda 70s linear infinite; }
+.linha2 { animation: direita 80s linear infinite; }
+.linha3 { animation: esquerda 90s linear infinite; }
 
 .linha img {
   height: 180px;
@@ -71,20 +87,6 @@ nav a:hover {
   background: #111;
   padding: 6px;
 }
-
-@keyframes esquerda {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@keyframes direita {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
-}
-
-.linha1 { animation: esquerda 55s linear infinite; }
-.linha2 { animation: direita 65s linear infinite; }
-.linha3 { animation: esquerda 75s linear infinite; }
 
 .btn-galeria {
   position: absolute;
@@ -130,7 +132,7 @@ nav a:hover {
 }
 
 /* ==========================
-   MODAL (CORRIGIDO)
+   MODAL
 ========================== */
 .modal {
   display: none;
@@ -151,7 +153,6 @@ nav a:hover {
   flex-direction: column;
   gap: 12px;
   position: relative;
-  box-shadow: 0 0 20px rgba(255,140,0,0.1);
 }
 
 /* fechar */
@@ -246,11 +247,17 @@ nav a:hover {
   }
 
   .galeria-preview {
-    padding: 20px 0;
+    padding: 25px 0;
+  }
+
+  .linha {
+    gap: 14px;
+    margin: 20px 0;
   }
 
   .linha img {
     height: 120px;
+    padding: 4px;
   }
 
   .frases p {
