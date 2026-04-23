@@ -64,7 +64,7 @@ nav a:hover {
   will-change: transform;
 }
 
-/* 🔥 AJUSTE PRINCIPAL: agora o loop funciona no mobile */
+/* 🔥 mais suave e contínuo */
 @keyframes esquerda {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
@@ -75,9 +75,9 @@ nav a:hover {
   to { transform: translateX(-100%); }
 }
 
-.linha1 { animation: esquerda 70s linear infinite; }
-.linha2 { animation: direita 80s linear infinite; }
-.linha3 { animation: esquerda 90s linear infinite; }
+.linha1 { animation: esquerda 75s linear infinite; }
+.linha2 { animation: direita 85s linear infinite; }
+.linha3 { animation: esquerda 95s linear infinite; }
 
 .linha img {
   height: 180px;
@@ -107,12 +107,12 @@ nav a:hover {
 ========================== */
 .frases {
   text-align: center;
-  padding: 90px 20px;
+  padding: 70px 20px; /* 🔥 menos vazio */
 }
 
 .frases p {
-  font-size: 34px;
-  margin: 10px 0;
+  font-size: 30px; /* 🔥 mais equilibrado */
+  margin: 8px 0;
   opacity: 0.9;
 }
 
@@ -122,7 +122,7 @@ nav a:hover {
 .sobre {
   display: flex;
   gap: 60px;
-  padding: 90px;
+  padding: 80px;
   align-items: center;
 }
 
@@ -155,7 +155,6 @@ nav a:hover {
   position: relative;
 }
 
-/* fechar */
 .fechar {
   position: absolute;
   right: 12px;
@@ -247,21 +246,25 @@ nav a:hover {
   }
 
   .galeria-preview {
-    padding: 25px 0;
+    padding: 15px 0; /* 🔥 menos vazio */
   }
 
   .linha {
-    gap: 14px;
-    margin: 20px 0;
+    gap: 10px; /* 🔥 mais compacto */
+    margin: 12px 0;
   }
 
   .linha img {
-    height: 120px;
-    padding: 4px;
+    height: 140px; /* 🔥 maior no mobile */
+    padding: 3px;
+  }
+
+  .frases {
+    padding: 40px 15px;
   }
 
   .frases p {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .sobre {
