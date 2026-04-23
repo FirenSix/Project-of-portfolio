@@ -1,56 +1,57 @@
-// ABRIR GALERIA
-document.getElementById("abrirGaleria").onclick = () => {
-  document.getElementById("galeriaModal").style.display = "block";
+// CONTATO
+document.querySelector(".btn-contato").onclick = () => {
+  document.getElementById("contatoModal").style.display = "block";
 };
 
-// IMAGENS (img1.png até img5.png)
-const imagens = [];
+// LOGIN ABRIR
+document.getElementById("adminBtn").onclick = () => {
+  document.getElementById("loginModal").style.display = "block";
+};
 
-for (let i = 1; i <= 5; i++) {
-  imagens.push(`assets/images/teste/img${i}.png`);
-}
+// LOGIN
+async function login() {
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
 
-// PEGAR LINHAS
-const linhas = document.querySelectorAll(".linha");
-
-// LOOP INFINITO REAL
-linhas.forEach((linha, index) => {
-
-  const listaBase = index % 2 === 0 ? imagens : [...imagens].reverse();
-
-  // DUPLICA PRA LOOP PERFEITO
-  const listaFinal = [...listaBase, ...listaBase];
-
-  listaFinal.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    linha.appendChild(img);
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password: senha
   });
 
-});
+  if (error) return alert("Erro login");
 
-// PROJETOS FAKE
-const projetos = [
-  {
-    nome: "Projeto 1",
-    capa: "assets/images/teste/img1.png",
-    desc: "Descrição do projeto 1"
-  },
-  {
-    nome: "Projeto 2",
-    capa: "assets/images/teste/img2.png",
-    desc: "Descrição do projeto 2"
+  document.getElementById("loginModal").style.display = "none";
+  document.getElementById("adminPanel").style.display = "block";
+}
+
+// MOSTRAR FORM
+function mostrarForm() {
+  document.getElementById("formProjeto").style.display = "block";
+}
+
+// UPLOAD
+async function publicarProjeto() {
+  const nome = document.getElementById("projNome").value;
+  const desc = document.getElementById("projDesc").value;
+  const files = document.getElementById("fotos").files;
+
+  let urls = [];
+
+  for (let file of files) {
+    const nomeArq = Date.now() + file.name;
+
+    await supabase.storage.from("imagens").upload(nomeArq, file);
+
+    const { data } = supabase.storage.from("imagens").getPublicUrl(nomeArq);
+
+    urls.push(data.publicUrl);
   }
-];
 
-// LISTAR PROJETOS
-const listaProjetos = document.getElementById("listaProjetos");
+  await supabase.from("projetos").insert({
+    nome,
+    descricao: desc,
+    capa_url: urls[0]
+  });
 
-projetos.forEach(p => {
-  listaProjetos.innerHTML += `
-    <div class="card" onclick="alert('${p.desc}')">
-      <img src="${p.capa}">
-      <h4>${p.nome}</h4>
-    </div>
-  `;
-});
+  alert("Projeto publicado!");
+}
