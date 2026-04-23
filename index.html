@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Portfólio Fotógrafo</title>
+<meta charset="UTF-8">
+<title>Portfólio Fotógrafo</title>
 
-  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
-  <!-- Fonte elegante -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
+
 <body>
 
 <header>
-  <h2>Fotógrafo</h2>
+  <h2>Durantte Fotografia</h2>
   <nav>
     <a href="#sobre">Sobre</a>
     <a href="#galeria">Galeria</a>
@@ -20,50 +22,71 @@
   </nav>
 </header>
 
-<!-- GALERIA ANIMADA -->
 <section class="galeria-preview" id="galeria">
   <div class="linha linha1"></div>
   <div class="linha linha2"></div>
   <div class="linha linha3"></div>
-
-  <button id="abrirGaleria">Ver Galeria</button>
 </section>
 
-<!-- FRASES -->
 <section class="frases">
   <p>Memórias que o tempo não apaga.</p>
   <p>Histórias que vivem para sempre.</p>
 </section>
 
-<!-- SOBRE -->
 <section id="sobre" class="sobre">
-  <img src="assets/images/perfil/imagemPerfil.png">
+  <img src="imagemPerfil.png">
   <div>
-    <h2>Nome do Fotógrafo</h2>
-    <p>Nascido em 2000</p>
-    <p>Descrição do fotógrafo aqui. Especialista em capturar momentos únicos e transformá-los em memórias eternas.</p>
-  </div>
-</section>
+    <h2>Durantte Fotografia</h2>
+    <p>
+Acredito que a fotografia de verdade é aquela que busca o que é real, as coisas que acontecem uma única vez e que não podem ser ensaiadas.
 
-<!-- CONTATO -->
-<section class="contato">
-  <h2>Contato</h2>
-  <p>WhatsApp</p>
-  <p>Instagram</p>
+Meu olhar é guiado pela sensibilidade...
+
+"Não fazemos uma foto apenas com uma câmera..."
+— Ansel Adams
+    </p>
+  </div>
 </section>
 
 <footer>
   <span id="adminBtn">Área do fotógrafo</span>
 </footer>
 
-<!-- MODAL GALERIA -->
-<div class="modal" id="galeriaModal">
+<!-- CONTATO -->
+<div class="modal" id="contatoModal">
   <div class="modal-content">
-    <h3>Projetos</h3>
-    <div id="listaProjetos"></div>
+    <h3>Vamos criar um projeto juntos?</h3>
+    <a href="https://wa.me/554499542293" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/duranttefotografia" target="_blank">Instagram</a>
+    <a href="mailto:matheusferreirxa@gmail.com">Email</a>
   </div>
 </div>
 
+<!-- LOGIN -->
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <input id="email" placeholder="Email">
+    <input id="senha" type="password" placeholder="Senha">
+    <button onclick="login()">Entrar</button>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="modal" id="adminPanel">
+  <div class="modal-content">
+    <button onclick="mostrarForm()">Publicar Projeto</button>
+
+    <div id="formProjeto" style="display:none;">
+      <input id="projNome" placeholder="Nome">
+      <textarea id="projDesc"></textarea>
+      <input type="file" id="fotos" multiple>
+      <button onclick="publicarProjeto()">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/supabase.js"></script>
 <script src="js/app.js"></script>
+
 </body>
 </html>
