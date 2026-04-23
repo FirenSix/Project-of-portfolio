@@ -36,16 +36,14 @@
 
 <section id="sobre" class="sobre">
   <img src="assets/images/perfil/imagemPerfil.png">
-
   <div>
     <h2>Durantte Fotografia</h2>
-
     <p>
-Acredito que a fotografia de verdade é aquela que busca o que é real, as coisas que acontecem uma única vez e que não podem ser ensaiadas. Uso a luz e o tempo apenas como ferramentas para encontrar a matéria-prima do meu trabalho: os detalhes que fazem um instante não ser esquecido.
+Acredito que a fotografia de verdade é aquela que busca o que é real...
 <br><br>
-Meu olhar é guiado pela sensibilidade, mas também pela intenção de estar presente. Para mim, não se trata apenas de criar uma imagem bonita, mas de encontrar profundidade e verdade em cada clique. É sobre registrar a vida como ela é, com toda a sua autenticidade.
+Meu olhar é guiado pela sensibilidade...
 <br><br>
-"Não fazemos uma foto apenas com uma câmera; ao ato de fotografar trazemos todos os livros que lemos, os filmes que vimos, a música que ouvimos, as pessoas que amamos."
+"Não fazemos uma foto apenas com uma câmera..."
 <br>
 Ansel Adams
     </p>
@@ -56,11 +54,19 @@ Ansel Adams
   <span id="adminBtn">Área do fotógrafo</span>
 </footer>
 
+<!-- GALERIA -->
+<div class="modal" id="galeriaModal">
+  <div class="modal-content galeria-full">
+    <span class="fechar" onclick="fecharModal('galeriaModal')">✕</span>
+    <h2>Projetos</h2>
+    <div id="listaProjetos"></div>
+  </div>
+</div>
+
 <!-- CONTATO -->
 <div class="modal" id="contatoModal">
   <div class="modal-content">
     <span class="fechar" onclick="fecharModal('contatoModal')">✕</span>
-
     <h3>Vamos criar um projeto juntos?</h3>
 
     <a href="https://wa.me/554499542293" target="_blank">
@@ -81,7 +87,6 @@ Ansel Adams
 <div class="modal" id="loginModal">
   <div class="modal-content">
     <span class="fechar" onclick="fecharModal('loginModal')">✕</span>
-
     <input id="email" placeholder="Email">
     <input id="senha" type="password" placeholder="Senha">
     <button onclick="login()">Entrar</button>
@@ -101,6 +106,9 @@ Ansel Adams
       <input type="file" id="fotos" multiple>
       <button onclick="publicarProjeto()">Enviar</button>
     </div>
+
+    <h3>Projetos</h3>
+    <div id="listaAdmin"></div>
   </div>
 </div>
 
