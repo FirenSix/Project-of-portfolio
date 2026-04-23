@@ -47,46 +47,47 @@ nav a:hover {
 }
 
 /* ==========================
-   GALERIA
+   GALERIA (CORRIGIDA)
 ========================== */
+
 .galeria-preview {
   margin-top: 90px;
-  padding: 40px 0;
+  padding: 25px 0;
   overflow: hidden;
   position: relative;
 }
 
 .linha {
   display: flex;
+  gap: 18px;
+  margin: 18px 0;
   width: max-content;
-  gap: 25px;
-  margin: 35px 0;
   will-change: transform;
 }
 
-/* 🔥 mais suave e contínuo */
-@keyframes esquerda {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
-}
-
-@keyframes direita {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
-}
-
-.linha1 { animation: esquerda 75s linear infinite; }
-.linha2 { animation: direita 85s linear infinite; }
-.linha3 { animation: esquerda 95s linear infinite; }
-
 .linha img {
-  height: 180px;
+  height: 160px;
   width: auto;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 12px;
   background: #111;
-  padding: 6px;
+  padding: 4px;
 }
+
+/* animações diferentes de verdade */
+@keyframes moveLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes moveRight {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.linha1 { animation: moveLeft 60s linear infinite; }
+.linha2 { animation: moveRight 75s linear infinite; }
+.linha3 { animation: moveLeft 90s linear infinite; }
 
 .btn-galeria {
   position: absolute;
@@ -105,13 +106,14 @@ nav a:hover {
 /* ==========================
    FRASES
 ========================== */
+
 .frases {
   text-align: center;
-  padding: 70px 20px; /* 🔥 menos vazio */
+  padding: 40px 15px;
 }
 
 .frases p {
-  font-size: 30px; /* 🔥 mais equilibrado */
+  font-size: 24px;
   margin: 8px 0;
   opacity: 0.9;
 }
@@ -119,6 +121,7 @@ nav a:hover {
 /* ==========================
    SOBRE
 ========================== */
+
 .sobre {
   display: flex;
   gap: 60px;
@@ -132,8 +135,9 @@ nav a:hover {
 }
 
 /* ==========================
-   MODAL
+   MODAIS
 ========================== */
+
 .modal {
   display: none;
   position: fixed;
@@ -167,6 +171,7 @@ nav a:hover {
 /* ==========================
    CONTATO
 ========================== */
+
 .modal-content h3 {
   color: #ffae42;
   font-size: 18px;
@@ -198,6 +203,7 @@ nav a:hover {
 /* ==========================
    GALERIA FULL
 ========================== */
+
 .galeria-full {
   width: 90%;
   max-width: 1000px;
@@ -234,56 +240,54 @@ nav a:hover {
 /* ==========================
    RESPONSIVO (MOBILE)
 ========================== */
+
 @media (max-width: 768px) {
 
   header {
-    padding: 15px 20px;
+    padding: 12px 16px;
   }
 
   nav a {
-    margin-left: 12px;
-    font-size: 14px;
+    margin-left: 10px;
+    font-size: 13px;
   }
 
   .galeria-preview {
-    padding: 15px 0; /* 🔥 menos vazio */
+    padding: 12px 0;
   }
 
   .linha {
-    gap: 10px; /* 🔥 mais compacto */
-    margin: 12px 0;
+    gap: 10px;
+    margin: 10px 0;
   }
 
   .linha img {
-    height: 140px; /* 🔥 maior no mobile */
+    height: 110px;
     padding: 3px;
   }
 
-  .frases {
-    padding: 40px 15px;
-  }
-
   .frases p {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .sobre {
     flex-direction: column;
-    padding: 40px 20px;
+    padding: 30px 15px;
+    gap: 20px;
     text-align: center;
   }
 
   .sobre img {
-    width: 180px;
+    width: 160px;
   }
 
   .modal-content {
-    width: 90%;
+    width: 92%;
     max-width: 340px;
   }
 
   .btn-galeria {
-    font-size: 14px;
-    padding: 10px 18px;
+    font-size: 13px;
+    padding: 10px 16px;
   }
 }
