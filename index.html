@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Durantte Fotografia</title>
+<meta charset="UTF-8">
+<title>Durantte Fotografia</title>
 
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 
 <body>
@@ -21,32 +21,28 @@
   </nav>
 </header>
 
-<!-- GALERIA -->
 <section class="galeria-preview" id="galeria">
   <div class="linha linha1"></div>
   <div class="linha linha2"></div>
   <div class="linha linha3"></div>
+
+  <button id="abrirGaleria" class="btn-galeria">Ver Galeria</button>
 </section>
 
-<!-- FRASES -->
 <section class="frases">
   <p>Memórias que o tempo não apaga.</p>
   <p>Histórias que vivem para sempre.</p>
 </section>
 
-<!-- SOBRE -->
 <section id="sobre" class="sobre">
   <img src="assets/images/perfil/imagemPerfil.png">
 
   <div>
     <h2>Durantte Fotografia</h2>
-
     <p>
-Acredito que a fotografia de verdade é aquela que busca o que é real, as coisas que acontecem uma única vez e que não podem ser ensaiadas. Uso a luz e o tempo apenas como ferramentas para encontrar a matéria-prima do meu trabalho: os detalhes que fazem um instante não ser esquecido.<br><br>
-
-Meu olhar é guiado pela sensibilidade, mas também pela intenção de estar presente. Para mim, não se trata apenas de criar uma imagem bonita, mas de encontrar profundidade e verdade em cada clique. É sobre registrar a vida como ela é, com toda a sua autenticidade.<br><br>
-
-"Não fazemos uma foto apenas com uma câmera; ao ato de fotografar trazemos todos os livros que lemos, os filmes que vimos, a música que ouvimos, as pessoas que amamos..."
+Acredito que a fotografia de verdade é aquela que busca o que é real...
+<br><br>
+"Não fazemos uma foto apenas com uma câmera..."
 <br>— Ansel Adams
     </p>
   </div>
@@ -59,17 +55,29 @@ Meu olhar é guiado pela sensibilidade, mas também pela intenção de estar pre
 <!-- CONTATO -->
 <div class="modal" id="contatoModal">
   <div class="modal-content">
+    <span class="fechar" onclick="fecharModal('contatoModal')">✕</span>
+
     <h3>Vamos criar um projeto juntos?</h3>
 
-    <a href="https://wa.me/554499542293" target="_blank">WhatsApp</a>
-    <a href="https://instagram.com/duranttefotografia" target="_blank">Instagram</a>
-    <a href="mailto:matheusferreirxa@gmail.com">Email</a>
+    <a href="https://wa.me/554499542293" target="_blank">
+      <img src="assets/images/logos/logozap.png"> WhatsApp
+    </a>
+
+    <a href="https://instagram.com/duranttefotografia" target="_blank">
+      <img src="assets/images/logos/logoinsta.png"> Instagram
+    </a>
+
+    <a href="mailto:matheusferreirxa@gmail.com">
+      <img src="assets/images/logos/emaillogo.png"> Email
+    </a>
   </div>
 </div>
 
 <!-- LOGIN -->
 <div class="modal" id="loginModal">
   <div class="modal-content">
+    <span class="fechar" onclick="fecharModal('loginModal')">✕</span>
+
     <input id="email" placeholder="Email">
     <input id="senha" type="password" placeholder="Senha">
     <button onclick="login()">Entrar</button>
@@ -79,6 +87,7 @@ Meu olhar é guiado pela sensibilidade, mas também pela intenção de estar pre
 <!-- ADMIN -->
 <div class="modal" id="adminPanel">
   <div class="modal-content">
+    <span class="fechar" onclick="fecharModal('adminPanel')">✕</span>
 
     <button onclick="mostrarForm()">Publicar Projeto</button>
 
@@ -88,7 +97,6 @@ Meu olhar é guiado pela sensibilidade, mas também pela intenção de estar pre
       <input type="file" id="fotos" multiple>
       <button onclick="publicarProjeto()">Enviar</button>
     </div>
-
   </div>
 </div>
 
