@@ -213,72 +213,100 @@ nav a:hover {
 /* ================= RESPONSIVO MOBILE FORTE ================= */
 @media (max-width: 480px) {
 
-  /* HEADER GIGANTE PRA TESTE */
+  /* ===== HEADER ===== */
   header {
-    padding: 30px 20px !important;
+    padding: 18px 14px;
+    flex-direction: column;
+    gap: 10px;
   }
 
   header h2 {
-    font-size: 34px !important;
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   nav a {
-    font-size: 18px !important;
-    margin-left: 16px !important;
+    font-size: 16px;
+    margin-left: 0;
   }
 
   .btn-contato {
-    padding: 16px 22px !important;
-    font-size: 18px !important;
-    border-radius: 30px !important;
+    padding: 14px 20px;
+    font-size: 16px;
   }
 
-  /* GALERIA ENORME */
+  /* ===== GALERIA ===== */
   .galeria-preview {
-    padding: 30px 0 !important;
+    padding: 20px 0;
+    margin-top: 110px;
   }
 
   .linha {
-    gap: 18px !important;
-    margin: 18px 0 !important;
+    gap: 12px;
+    margin: 12px 0;
   }
 
   .linha img {
-    height: 260px !important;
-    border-radius: 18px !important;
+    height: 200px;
+    border-radius: 14px;
   }
 
-  /* FRASES GRANDES */
+  .btn-galeria {
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+
+  /* ===== FRASES ===== */
   .frases {
-    padding: 50px 15px !important;
+    padding: 50px 15px;
   }
 
   .frases p {
-    font-size: 34px !important;
+    font-size: 26px;
+    line-height: 1.3;
   }
 
-  /* SOBRE GRANDE */
+  /* ===== SOBRE (MUDANÇA QUE TU QUERIA) ===== */
   .sobre {
-    flex-direction: column !important;
-    padding: 30px 15px !important;
-    gap: 20px !important;
+    flex-direction: column;
+    padding: 40px 15px;
+    gap: 20px;
   }
 
   .sobre img {
-    width: 100% !important;
-    height: 320px !important;
-    object-fit: cover !important;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 16px;
   }
 
-  /* BOTÃO GALERIA GRANDE */
-  .btn-galeria {
-    font-size: 18px !important;
-    padding: 16px 26px !important;
+  .sobre h2 {
+    font-size: 24px;
+    text-align: center;
   }
 
-  /* MODAL MAIOR */
+  .sobre p {
+    font-size: 15px;
+    text-align: justify;
+    line-height: 1.5;
+  }
+
+  /* ===== MODAIS ===== */
   .modal-content {
-    width: 95% !important;
-    padding: 30px !important;
+    width: 92%;
+    padding: 18px;
   }
+
+  /* ===== GALERIA FULL ===== */
+  .card-projeto img {
+    height: 240px;
+  }
+
 }
