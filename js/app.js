@@ -19,7 +19,7 @@ window.onclick = function(e) {
   });
 };
 
-// GALERIA LOOP
+// GALERIA
 const imagens = [];
 for (let i = 1; i <= 18; i++) {
   imagens.push(`assets/images/teste/img${i}.png`);
@@ -38,17 +38,12 @@ linhas.forEach((linha, index) => {
   });
 });
 
-// BOTÃO GALERIA
-document.getElementById("abrirGaleria").onclick = () => {
-  alert("Aqui vai abrir os projetos 😏");
-};
-
 // LOGIN
 async function login() {
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
 
-  const { error } = await supabase.auth.signInWithPassword({
+  const { error } = await supabaseClient.auth.signInWithPassword({
     email,
     password: senha
   });
@@ -75,14 +70,14 @@ async function publicarProjeto() {
   for (let file of files) {
     const nomeArq = Date.now() + "-" + file.name;
 
-    await supabase.storage.from("imagens").upload(nomeArq, file);
+    await supabaseClient.storage.from("imagens").upload(nomeArq, file);
 
-    const { data } = supabase.storage.from("imagens").getPublicUrl(nomeArq);
+    const { data } = supabaseClient.storage.from("imagens").getPublicUrl(nomeArq);
 
     urls.push(data.publicUrl);
   }
 
-  await supabase.from("projetos").insert({
+  await supabaseClient.from("projetos").insert({
     nome,
     descricao: desc,
     capa_url: urls[0]
@@ -90,17 +85,3 @@ async function publicarProjeto() {
 
   alert("Projeto publicado!");
 }
-
-
-// TESTE DE LOGIN
-async function testeLogin() {
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email: "matheusferreirxa@gmail.com",
-    password: "@M4theusDur4ante1515"
-  });
-
-  console.log("DATA:", data);
-  console.log("ERROR:", error);
-}
-
-testeLogin();
