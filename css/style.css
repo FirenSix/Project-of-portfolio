@@ -213,74 +213,90 @@ nav a:hover {
 /* ================= RESPONSIVO ================= */
 @media (max-width: 480px) {
 
-  /* HEADER MAIS COMPACTO E LEGÍVEL */
+  /* HEADER MAIS IMPACTO */
   header {
-    padding: 12px 14px;
+    padding: 10px 12px;
   }
 
   header h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   nav a {
-    font-size: 12px;
-    margin-left: 8px;
+    font-size: 13px;
+    margin-left: 10px;
   }
 
   .btn-contato {
-    padding: 8px 12px;
-    font-size: 12px;
+    padding: 10px 14px;
+    font-size: 13px;
   }
 
-  /* GALERIA MAIS CHEIA NA TELA */
+  /* GALERIA DOMINANDO A TELA */
   .galeria-preview {
-    padding: 10px 0;
+    padding: 6px 0;
     margin-top: 70px;
   }
 
   .linha {
-    gap: 8px;
-    margin: 10px 0;
+    gap: 10px;
+    margin: 8px 0;
   }
 
   .linha img {
-    height: 150px; /* mais presença na tela */
-    border-radius: 10px;
+    height: 200px; /* 🔥 AUMENTO GRANDE */
+    border-radius: 12px;
   }
 
-  /* FRASES MENOS ESPAÇADAS */
+  /* FRASES MAIS PRESENTES */
   .frases {
-    padding: 30px 12px;
+    padding: 25px 10px;
   }
 
   .frases p {
-    font-size: 20px;
+    font-size: 26px; /* 🔥 maior impacto */
+    line-height: 1.2;
   }
 
-  /* SOBRE VIRANDO "BLOCO VISUAL" */
+  /* SOBRE MAIS “HERO SECTION” */
   .sobre {
     flex-direction: column;
-    padding: 25px 12px;
-    gap: 20px;
-    text-align: center;
+    padding: 20px 10px;
+    gap: 15px;
   }
 
   .sobre img {
     width: 100%;
-    height: 220px;
+    height: 280px; /* 🔥 agora sim destaque */
     object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .sobre p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  /* MODAL MAIS FORTE */
+  .modal-content {
+    width: 94%;
+    padding: 20px;
     border-radius: 14px;
   }
 
-  /* MODAIS MAIS USÁVEIS */
-  .modal-content {
-    width: 92%;
-    padding: 18px;
+  /* BOTÃO GALERIA MAIS VISUAL */
+  .btn-galeria {
+    font-size: 15px;
+    padding: 12px 20px;
   }
 
-  /* BOTÃO GALERIA MAIS FORTE */
-  .btn-galeria {
-    font-size: 13px;
-    padding: 10px 16px;
+  /* PROJETOS MAIS VISÍVEIS */
+  .card-projeto img {
+    height: 260px;
+  }
+
+  .card-projeto span {
+    font-size: 14px;
+    padding: 14px;
   }
 }
