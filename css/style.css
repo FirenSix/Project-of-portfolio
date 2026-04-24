@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= HEADER ================= */
+/* header (topo do site) */
 header {
   position: fixed;
   top: 0;
@@ -49,7 +49,7 @@ nav a:hover {
   font-weight: bold;
 }
 
-/* ================= GALERIA ================= */
+/* galeria preview (linhas animadas) */
 .galeria-preview {
   margin-top: 90px;
   padding: 20px 0;
@@ -71,7 +71,7 @@ nav a:hover {
   object-fit: cover;
 }
 
-/* animação contínua */
+/* animações da galeria */
 @keyframes esquerda {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -100,7 +100,7 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* ================= FRASES ================= */
+/* frases do meio */
 .frases {
   text-align: center;
   padding: 60px 20px;
@@ -111,7 +111,7 @@ nav a:hover {
   margin: 8px 0;
 }
 
-/* ================= SOBRE CARD ================= */
+/* card sobre (foto + texto) */
 .sobre {
   display: flex;
   justify-content: center;
@@ -128,7 +128,7 @@ nav a:hover {
   box-shadow: 0 0 25px rgba(255,122,0,0.15);
 }
 
-/* imagem SEMPRE em cima */
+/* imagem sempre em cima */
 .perfil-img {
   width: 100%;
   height: 260px;
@@ -148,9 +148,8 @@ nav a:hover {
   color: #ddd;
 }
 
-/* MOBILE só ajusta tamanho, não troca layout */
+/* ajustes do sobre no celular */
 @media (max-width: 480px) {
-
   .sobre-card {
     padding: 15px;
   }
@@ -164,7 +163,7 @@ nav a:hover {
   }
 }
 
-/* ================= MODAL ================= */
+/* modais (login, contato, galeria) */
 .modal {
   display: none;
   position: fixed;
@@ -193,7 +192,7 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* contatos */
+/* links dentro do modal */
 .modal-content a {
   display: flex;
   align-items: center;
@@ -216,7 +215,7 @@ nav a:hover {
   height: 22px;
 }
 
-/* ================= GALERIA FULL ================= */
+/* galeria completa (modal) */
 .galeria-full {
   width: 90%;
   max-width: 1000px;
@@ -250,35 +249,35 @@ nav a:hover {
   background: linear-gradient(transparent, rgba(0,0,0,0.85));
 }
 
-/* ================= MOBILE FORTE ================= */
+/* ajustes gerais do mobile */
 @media (max-width: 480px) {
 
-header {
-  padding: 14px 10px;
-}
+  header {
+    padding: 14px 10px;
+  }
 
-header h2 {
-  font-size: 18px;
-}
+  header h2 {
+    font-size: 18px;
+  }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: nowrap;
-}
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
 
-nav a {
-  font-size: 11px;
-  margin-left: 0;
-  white-space: nowrap;
-}
+  nav a {
+    font-size: 11px;
+    margin-left: 0;
+    white-space: nowrap;
+  }
 
-.btn-contato {
-  padding: 7px 10px;
-  font-size: 11px;
-  white-space: nowrap;
-}
+  .btn-contato {
+    padding: 7px 10px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
 
   .galeria-preview {
     padding: 18px 0;
@@ -306,13 +305,13 @@ nav a {
     text-align: center;
   }
 
-.sobre img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
-}
+  .sobre img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+  }
 
   .modal-content {
     width: 92%;
