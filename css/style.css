@@ -213,6 +213,7 @@ nav a:hover {
 .modal-content a img {
   width: 22px;
   height: 22px;
+  border-radius: 6px;
 }
 
 /* galeria completa (modal) */
