@@ -253,23 +253,32 @@ nav a:hover {
 /* ================= MOBILE FORTE ================= */
 @media (max-width: 480px) {
 
-  header {
-    padding: 14px 12px;
-  }
+header {
+  padding: 14px 10px;
+}
 
-  header h2 {
-    font-size: 22px;
-  }
+header h2 {
+  font-size: 18px;
+}
 
-  nav a {
-    font-size: 13px;
-    margin-left: 10px;
-  }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
 
-  .btn-contato {
-    padding: 10px 14px;
-    font-size: 13px;
-  }
+nav a {
+  font-size: 11px;
+  margin-left: 0;
+  white-space: nowrap;
+}
+
+.btn-contato {
+  padding: 7px 10px;
+  font-size: 11px;
+  white-space: nowrap;
+}
 
   .galeria-preview {
     padding: 18px 0;
@@ -297,14 +306,13 @@ nav a:hover {
     text-align: center;
   }
 
-  /* 🔥 troca imagem só no celular */
-  .sobre img {
-    content: url("fotoperfilhorizontal.png");
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 14px;
-  }
+.sobre img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
 
   .modal-content {
     width: 92%;
