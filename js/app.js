@@ -1,6 +1,4 @@
-// ==========================
-// MODAIS (CORRIGIDO)
-// ==========================
+// modais
 function abrirModal(id) {
   document.getElementById(id).style.display = "flex";
 }
@@ -23,9 +21,7 @@ window.onclick = function (e) {
   });
 };
 
-// ==========================
-// MURAL
-// ==========================
+// mural (linhas animadas com imagens)
 async function carregarMural() {
   const linhas = document.querySelectorAll(".linha");
   linhas.forEach(l => l.innerHTML = "");
@@ -50,7 +46,7 @@ async function carregarMural() {
     console.log("Erro supabase:", e);
   }
 
-  // fallback
+  // fallback caso não tenha imagens
   if (imagens.length === 0) {
     for (let i = 1; i <= 18; i++) {
       imagens.push(`assets/images/teste/img${i}.png`);
@@ -71,9 +67,7 @@ async function carregarMural() {
 
 carregarMural();
 
-// ==========================
-// GALERIA
-// ==========================
+// galeria de projetos
 document.getElementById("abrirGaleria").onclick = carregarGaleria;
 
 async function carregarGaleria() {
@@ -102,9 +96,7 @@ async function carregarGaleria() {
   });
 }
 
-// ==========================
-// LOGIN
-// ==========================
+// login do admin
 async function login() {
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
@@ -125,16 +117,12 @@ async function login() {
   carregarAdmin();
 }
 
-// ==========================
-// FORM
-// ==========================
+// abrir formulário de projeto
 function mostrarForm() {
   document.getElementById("formProjeto").style.display = "block";
 }
 
-// ==========================
-// PUBLICAR PROJETO
-// ==========================
+// publicar projeto novo
 async function publicarProjeto() {
   try {
     const nome = document.getElementById("projNome").value;
@@ -188,9 +176,7 @@ async function publicarProjeto() {
   }
 }
 
-// ==========================
-// ADMIN
-// ==========================
+// painel admin (listar projetos)
 async function carregarAdmin() {
   const lista = document.getElementById("listaAdmin");
   lista.innerHTML = "";
@@ -213,9 +199,7 @@ async function carregarAdmin() {
   });
 }
 
-// ==========================
-// EDITAR
-// ==========================
+// editar nome do projeto
 async function editarProjeto(id) {
   const novoNome = prompt("Novo nome:");
   if (!novoNome) return;
@@ -228,9 +212,7 @@ async function editarProjeto(id) {
   carregarAdmin();
 }
 
-// ==========================
-// DELETE
-// ==========================
+// excluir projeto
 async function deletarProjeto(id) {
   if (!confirm("Excluir projeto?")) return;
 
